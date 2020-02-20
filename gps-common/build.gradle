@@ -1,0 +1,7 @@
+group = 'com.gps180'
+jar.enabled = true
+bootJar.enabled = false
+dependencies {
+    compile "com.alibaba:fastjson:${fastjsonVersion}"
+    compileOnly 'com.fasterxml.jackson.core:jackson-annotations:2.9.9'
+}

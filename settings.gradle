@@ -1,0 +1,7 @@
+rootProject.name = 'gps180'
+include ':gps-common'
+include ':gps-db'
+include ':gps-api'
+include ':gps-jt809'
+include ':gps-websocket'
+include ':hbase'

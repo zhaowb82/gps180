@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gps.db.dao.GeofenceDao">
+
+    <select id="getGeofenceByDeviceImei" parameterType="java.lang.String" resultType="com.gps.db.entity.GeofenceEntity">
+        SELECT
+            g.id, g.`name`, g.area, g.attributes, g.description, g.company_id, g.icon, g.create_time, g.update_time
+        FROM
+            geofence g
+        LEFT JOIN device_geofence dg ON g.id = dg.geofence_id
+        WHERE
+            dg.imei = #{deviceImei}
+    </select>
+
+    <select id="geofenceList" parameterType="java.lang.String" resultType="com.gps.db.entityvo.GeofenceListVo">
+        SELECT
+            g.id,
+            g.`name`,
+            g.area,
+            g.attributes,
+            g.description,
+            g.company_id,
+            g.icon,
+            g.create_time,
+            g.update_time,
+            COUNT(dg.id) AS deviceCount
+        FROM
+            geofence g
+        LEFT JOIN device_geofence dg ON g.id = dg.geofence_id
+        WHERE
+            g.company_id = #{companyId}
+        GROUP BY g.id
+    </select>
+
+</mapper>

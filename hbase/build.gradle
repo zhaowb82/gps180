@@ -1,0 +1,42 @@
+jar.enabled = true
+bootJar.enabled = false
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-jdbc'
+//    compile 'org.springframework.boot:spring-boot-starter-actuator'
+//    compile 'org.springframework.boot:spring-boot-devtools'
+//    compile 'org.springframework.boot:spring-boot-configuration-processor'
+//    compile 'org.springframework.kafka:spring-kafka'
+
+//    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'commons-beanutils:commons-beanutils:1.9.3'
+//    compile 'io.springfox:springfox-swagger2:2.7.0'
+//    compile 'io.springfox:springfox-swagger-ui:2.7.0'
+
+//    compile 'com.google.guava:guava:16.0'
+
+//    compile 'org.apache.hbase:hbase-server:2.2.0'
+//    compile ('org.apache.hbase:hbase-client:2.2.0') {
+//        exclude(module: 'slf4j-log4j12')
+//    }
+//    compile ('org.apache.hbase:hbase-protocol:2.2.0') {
+//        exclude(module: 'slf4j-log4j12')
+//    }
+//    compile ('org.apache.hbase:hbase-common:2.2.0') {
+//        exclude(module: 'slf4j-log4j12')
+//    }
+    compile ('com.aliyun.hbase:alihbase-client:2.0.6') {
+        exclude(module: 'slf4j-log4j12')
+    }
+//    compile 'org.cloudera.htrace:htrace-core:2.01'
+//    compile 'org.apache.zookeeper:zookeeper:3.4.8'
+
+
+//    compile 'com.101tec:zkclient:0.10'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+

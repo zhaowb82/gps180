@@ -1,0 +1,28 @@
+
+jar.enabled = true
+bootJar.enabled = false
+
+dependencies {
+    compile project(':gps-common')
+
+//    compileOnly 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+//    compile "mysql:mysql-connector-java:${mysqlConnectorVersion}"
+//    compile 'tk.mybatis:mapper-spring-boot-starter:2.1.5'
+    compile "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+    compile "com.alibaba:fastjson:${fastjsonVersion}"
+//    compileOnly 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.10.2'
+    compile 'org.apache.commons:commons-pool2:2.6.2'
+
+    compile 'org.apache.commons:commons-lang3:3.9'
+    compileOnly 'org.apache.httpcomponents:httpcore:4.4.12'//R.java
+    compileOnly 'io.swagger:swagger-annotations:1.6.0'
+    compileOnly 'com.alibaba:druid:1.1.20'
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude(module: 'commons-logging')
+    }
+}

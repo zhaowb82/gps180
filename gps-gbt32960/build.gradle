@@ -1,0 +1,12 @@
+jar.enabled = true
+bootJar.enabled = false
+
+dependencies {
+    compile project(':gps-common')
+    compile "io.netty:netty-all:${nettyVersion}"
+
+//    compile 'com.google.protobuf:protobuf-java:3.6.1'
+//    compile 'commons-io:commons-io:2.5'
+//    compile 'commons-codec:commons-codec:1.12'
+    compile "com.google.guava:guava:${guavaVersion}"
+}

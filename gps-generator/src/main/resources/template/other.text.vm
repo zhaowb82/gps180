@@ -1,0 +1,44 @@
+
+// route
+{
+  path: '${classname}',
+  name: '${classname}',
+  component: () => import('@/views/Path/${className}')
+}
+
+// api
+get${className}List(params) {
+  return request({
+    url: '/api/${classname}/list',
+    method: 'get',
+    params,
+  })
+},
+get${className}Detail(id) {
+  return request({
+    url: `/api/${classname}/info/${id}`,
+    method: 'get'
+  })
+},
+add${className}(data) {
+  return request({
+    url: '/api/${classname}/save',
+    method: 'post',
+    data
+  })
+},
+update${className}(data) {
+  return request({
+    url: '/api/${classname}/update',
+    method: 'put',
+    data
+  })
+},
+delete${className}(id) {
+  return request({
+    url: `/api/${classname}/delete/${id}`,
+    method: 'delete'
+  })
+},
+
+
