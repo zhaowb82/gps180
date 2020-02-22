@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gps.db.dao.DeviceDao">
+
+    <select id="listByUser" resultType="com.gps.db.entity.DeviceEntity">
+        select d.* from device d
+    </select>
+
+    <select id="listByImei" resultType="string">
+        select d.imei from device d where 1=1
+        <if test="imei != null and imei.trim() != ''">
+            and d.imei like concat('%', #{imei}, '%')
+        </if>
+        order by d.imei limit 20
+    </select>
+    <select id="listPage" resultType="com.gps.db.entity.DeviceEntity">
+        select d.* from device d where 1=1
+        <if test="groupId != null and groupId.trim() != '' and groupId.trim() != 'null'">
+            and d.group_id = #{groupId}
+        </if>
+        <if test="groupId != null and groupId.trim() == 'null'">
+            and d.group_id is null or d.group_id = ''
+        </if>
+        <if test="imei != null and imei.trim() != ''">
+            and d.imei like concat('%', #{imei}, '%')
+        </if>
+    </select>
+
+    <select id="bindGeofenceDevice" parameterType="java.lang.String" resultType="com.gps.db.entity.DeviceEntity">
+        SELECT d.* FROM device_geofence dg LEFT JOIN device d ON d.imei = dg.imei WHERE d.company_id = #{companyId}
+        <if test="imei != null and imei != ''">
+            AND d.imei = #{imei}
+        </if>
+        <if test="geoId != null and geoId != ''">
+            AND dg.geofence_id = #{geoId}
+        </if>
+    </select>
+
+    <select id="unbindGeofenceDevice" parameterType="java.lang.String" resultType="com.gps.db.entity.DeviceEntity">
+        SELECT d.* FROM device d LEFT JOIN device_geofence dg ON d.imei = dg.imei WHERE d.company_id = #{companyId} AND dg.id IS NULL
+        <if test="imei != null and imei != ''">
+            AND d.imei = #{imei}
+        </if>
+    </select>
+</mapper>

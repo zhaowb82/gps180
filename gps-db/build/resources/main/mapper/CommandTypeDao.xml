@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gps.db.dao.CommandTypeDao">
+
+	<select id="cmdListByImei" parameterType="java.lang.String" resultType="com.gps.db.entity.CommandTypeEntity">
+		SELECT ct.* FROM command_type ct LEFT JOIN device d ON d.product_id = ct.device_type WHERE d.imei = #{imei}
+	</select>
+
+</mapper>

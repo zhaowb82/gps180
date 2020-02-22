@@ -17,9 +17,6 @@ import com.gps.db.entity.PositionsEntity;
 import com.gps.db.service.DeviceStatusService;
 import com.gps.db.service.PositionsService;
 import com.gps.db.utils.R;
-import com.muheda.notice.entity.HPosition;
-import com.muheda.notice.service.HPositionService;
-import com.muheda.notice.utils.HbaseUtils;
 import com.gps.api.common.utils.DateUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -58,14 +55,6 @@ public class GpsController extends AbstractController {
     private DeviceStatusService deviceStatusService;
     @Autowired
     private PositionsService positionsService;
-	@Autowired
-	private HPositionService hPositionService;
-
-//	@GetMapping(value = "userTypeDescr")
-//	@ApiOperation(value = "")
-//	public R userTypeDescr() {
-//		return R.ok(new ArrayList<String>());
-//	}
 
     @GetMapping(value = "lastPosition")
     @ApiOperation(value = "")
@@ -123,23 +112,23 @@ public class GpsController extends AbstractController {
             if (useHbase) {
 //                Date startDate = DateUtils.stringToDate(startTime, "yyyy-MM-dd HH:mm:ss");
 //                Date endDate = DateUtils.stringToDate(endTime, "yyyy-MM-dd HH:mm:ss");
-                String startRow = HbaseUtils.creatRowkey(imei, startTime.getTime());
-                String endRow = HbaseUtils.creatRowkey(imei, endTime.getTime());
-
-                List<HPosition> hPositions = hPositionService.queryScan(new HPosition(), startRow, endRow);
-				Collection<Position> positions = new ArrayList<>();
-				hPositions.forEach(hPosition -> {
-					Position position = new Position();
-					position.setImei(imei);
-					position.setLatitude(hPosition.getLatitude());
-					position.setLongitude(hPosition.getLongtitude());
-					position.setCourse(hPosition.getDirection());
-					position.setSpeed(hPosition.getSpeed());
-					position.setTotalDistance(hPosition.getTotalMiles());
-					position.setTime(DateUtils.stringToDate(hPosition.getDeviceTime(), "yyyy-MM-dd HH:mm:ss"));
-					positions.add(position);
-				});
-				positionsr = positions;
+//                String startRow = HbaseUtils.creatRowkey(imei, startTime.getTime());
+//                String endRow = HbaseUtils.creatRowkey(imei, endTime.getTime());
+//
+//                List<HPosition> hPositions = hPositionService.queryScan(new HPosition(), startRow, endRow);
+//				Collection<Position> positions = new ArrayList<>();
+//				hPositions.forEach(hPosition -> {
+//					Position position = new Position();
+//					position.setImei(imei);
+//					position.setLatitude(hPosition.getLatitude());
+//					position.setLongitude(hPosition.getLongtitude());
+//					position.setCourse(hPosition.getDirection());
+//					position.setSpeed(hPosition.getSpeed());
+//					position.setTotalDistance(hPosition.getTotalMiles());
+//					position.setTime(DateUtils.stringToDate(hPosition.getDeviceTime(), "yyyy-MM-dd HH:mm:ss"));
+//					positions.add(position);
+//				});
+//				positionsr = positions;
             } else {
 				List<PositionsEntity> list = positionsService.list(Wrappers.<PositionsEntity>query()
 						.lambda()

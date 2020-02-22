@@ -2,37 +2,24 @@ description = ''
 
 dependencies {
     compile project(':gps-common')
-    compile project(":gps-gbt32960")
     compile ('org.springframework.boot:spring-boot-starter-web') {
         exclude(module: 'spring-boot-starter-logging')
         exclude(module: 'spring-boot-starter-tomcat')
     }
     compile 'org.springframework.boot:spring-boot-starter-jetty'
 
-//    compile 'org.springframework.boot:spring-boot-starter-undertow'
-//    compile 'org.springframework.boot:spring-boot-starter-actuator'
-//    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-//    compile 'org.springframework.cloud:spring-cloud-starter-hystrix'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
     compile 'org.apache.commons:commons-pool2:2.6.2'
 
     compile 'org.springframework.kafka:spring-kafka'
-//    compile 'org.apache.kafka:kafka-clients:2.2.1'
     compile "com.google.guava:guava:${guavaVersion}"
-
-    compile 'io.springfox:springfox-swagger2:2.9.2'
-    compile 'io.springfox:springfox-swagger-ui:2.9.2'
-    compile 'io.swagger:swagger-annotations:1.5.22'
-    compile 'io.swagger:swagger-models:1.5.22'
 
     compile 'org.apache.commons:commons-lang3:3.9'
     compile "com.alibaba:fastjson:${fastjsonVersion}"
 
     compile "io.netty:netty-all:${nettyVersion}"
     compile 'commons-codec:commons-codec:1.12'
-//    testCompile 'junit:junit:2.7.0'
     testCompile('org.springframework.boot:spring-boot-starter-test') {
-//        exclude(module: 'commons-logging')
         exclude(module: 'spring-boot-starter-logging')
     }
 }

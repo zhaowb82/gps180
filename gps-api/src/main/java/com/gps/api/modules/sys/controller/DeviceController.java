@@ -16,7 +16,6 @@ import com.gps.db.service.UserDeviceService;
 import com.gps.db.utils.R;
 import com.gps.db.utils.UIDGenerator;
 import com.gps.api.common.annotation.SysLog;
-import com.muheda.notice.service.HPositionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -50,8 +49,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DeviceController extends AbstractController {
     @Value("${hbase.useHbase}")
     private boolean useHbase;
-    @Autowired
-    private HPositionService hPositionService;
 
     @Autowired
     private UserDeviceService userDeviceService;
@@ -222,7 +219,7 @@ public class DeviceController extends AbstractController {
         deviceStatusService.removeByImei(imei);
         deviceService.removeById(imei);
         if (useHbase) {
-            hPositionService.deleteBy(imei);
+//            hPositionService.deleteBy(imei);
         }
         return R.ok();
     }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
@@ -73,13 +74,14 @@ public class GpsRedisConfig {
     }
 
     @Bean("gpsConnFactory")
-    public LettuceConnectionFactory factory(GenericObjectPoolConfig gpsRedisPool1, RedisStandaloneConfiguration gpsRedisConfig1) {
+    public LettuceConnectionFactory factory(@Qualifier("gpsRedisPool1") GenericObjectPoolConfig gpsRedisPool1,
+                                            @Qualifier("gpsRedisConfig1") RedisStandaloneConfiguration gpsRedisConfig1) {
         LettuceClientConfiguration clientConfiguration = LettucePoolingClientConfiguration.builder().poolConfig(gpsRedisPool1).build();
         return new LettuceConnectionFactory(gpsRedisConfig1, clientConfiguration);
     }
 
     @Bean(name = "gpsRedisTemplate")
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory gpsConnFactory) {
+    public RedisTemplate<String, Object> redisTemplate(@Qualifier("gpsConnFactory") RedisConnectionFactory gpsConnFactory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(gpsConnFactory);
         redisTemplate.setKeySerializer(new StringRedisSerializer());

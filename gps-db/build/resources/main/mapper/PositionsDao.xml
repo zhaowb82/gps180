@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gps.db.dao.PositionsDao">
+
+<!--	&lt;!&ndash; 可根据自己的需求，是否要使用 &ndash;&gt;-->
+<!--    <resultMap type="PositionsEntity" id="positionsMap">-->
+<!--        <result property="id" column="id"/>-->
+<!--        <result property="imei" column="imei"/>-->
+<!--        <result property="deviceTime" column="device_time"/>-->
+<!--        <result property="latitude" column="latitude"/>-->
+<!--        <result property="longitude" column="longitude"/>-->
+<!--        <result property="speed" column="speed"/>-->
+<!--        <result property="direction" column="direction"/>-->
+<!--        <result property="attribute" column="attribute" typeHandler="MapDateTypeHandler"-->
+<!--                javaType="java.util.Map" jdbcType="VARCHAR"/>-->
+<!--        <result property="orgMsg" column="org_msg"/>-->
+<!--    </resultMap>-->
+
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gps.db.dao.UserGroupDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+<!--    <resultMap type="com.gps.common.entity.UserGoupEntity" id="userGoupMap">-->
+<!--        <result property="id" column="id"/>-->
+<!--        <result property="userId" column="user_id"/>-->
+<!--        <result property="groupId" column="group_id"/>-->
+<!--    </resultMap>-->
+
+    <select id="queryGroupIdList" resultType="java.lang.String">
+		select group_id from user_group where user_id = #{value}
+	</select>
+
+
+</mapper>

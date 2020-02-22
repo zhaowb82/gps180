@@ -1,8 +1,15 @@
 
-
 # GPS180 服务器平台
 
-该项目为前后端分离项目，前端项目地址：[`gps180-vue`](https://gitee.com/wibim/gps180-vue)。
+该项目为前后端分离项目，此项目为后端
+           
+后端项目地址：[`gps180 Gitee`](https://gitee.com/wibim/gps180)
+
+后端项目地址：[`gps180 GitHub`](https://github.com/zhaowb82/gps180)
+
+前端项目地址：[`gps180-vue Gitee`](https://gitee.com/wibim/gps180-vue)
+
+前端项目地址：[`gps180-vue GitHub`](https://github.com/zhaowb82/gps180-vue)
 
 ## 联系QQ群：1053077770
 
@@ -13,7 +20,9 @@
 ### 项目演示
 
 **演示地址：**
-- [http://wibim.vicp.net:8089/](http://wibim.vicp.net:8089/)
+- 电脑端：[http://wibim.vicp.net:8089/](http://wibim.vicp.net:8089/)
+
+- 手机端下载(flutter开发中）：![](./doc/pic/appdown.png)
 
 **账号密码：**
 
@@ -27,6 +36,8 @@
 
 - wibim.vicp.net : 6868
 
+- 可下载Android端测试APP进行模拟GPS上报测试 [`gps模拟器`](https://gitee.com/wibim/gps_simulator)
+
 **支持协议：**
 
 - jt808、天琴、博实结、康凯斯、谷米、32960
@@ -35,11 +46,12 @@
 
 **电脑端：** [https://biz.ccwcar.com/](https://biz.ccwcar.com/)
 
-**纯GPS端** [https://gps.ccwcar.com/](https://gps.ccwcar.com/)
+**纯GPS端：** [https://gps.ccwcar.com/](https://gps.ccwcar.com/)
 
 **手机端：** 
 
 ![](./doc/pic/syshare.png)
+
 ![](./doc/pic/syapp.jpg)
 
 自己注册帐号后加入演示公司，公司编号`290383`，申请加入后联系qq群
@@ -48,6 +60,7 @@
 ### 系统架构图
 
 ![](./doc/pic/jsjg.png)
+
 ![](./doc/pic/js1.png)
 
 ### 技术选型
@@ -87,7 +100,27 @@
 - GPS命令：提供50多种设备的命令，添加和下发都非常方便
 - 809平台对接：可以作为上级，下级平台对接到其它部标平台
 
+### 版本对比
+| 功能 | 开源版本 | 商用版本 |
+|---|---|---|
+| API功能 |[x]|[x]|
+| API ws连接 |[x]|[x]|
+| 代码生成器 |[x]|[x]|
+| Kafka队列 |[x]|[x]|
+| Gate协议支持 |http测试|全协议|
+| Gate通道支持 |tcp|tcp+udp|
+| Gate下发命令 |[ ]|[x]|
+| Gate多协议单端口 |[ ]|[x]|
+| Engine写入mysql |[x]|[x]|
+| Engine写入hbase |[ ]|[x]|
+| Engine通知报警 |[ ]|[x]|
+| 集群部署支持 |[ ]|[x]|
+| Jt809转发 |[ ]|[x]|
+| 初始化命令数据 |[ ]|[x]|
+| 后面开发的App |[ ]|[x]|
+
 ### 项目结构
+
 ``` lua
 ├─gps180
 ├── gps-api -- 给前端或将来的APP提供的API接口模块
@@ -101,6 +134,7 @@
 ├── gps-gate -- gps设备数据接收和协议解析模块
 ├── gps-engine -- gps数据处理和分发模块
 ```
+
 ### 最新1.0更新内容如下(更新日期2020.02.15)
 - 数据权限升级。
 - 前端产品更加易用，更加简洁，大气。
@@ -122,9 +156,13 @@
 - 用大数据方案存gps轨迹数据。
 
 ### 部分截图
+
 ![](./doc/pic/func1.png)
+
 ![](./doc/pic/func4.png)
+
 ![](./doc/pic/func2.png)
+
 ![](./doc/pic/func3.png)
 
 ## 许可证
@@ -134,3 +172,4 @@
 ## ccw开源项目
 
 官网：https://www.ccwcar.com/
+

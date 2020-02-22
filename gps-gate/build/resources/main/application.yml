@@ -1,0 +1,59 @@
+server:
+  port: 8086
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  servlet:
+    context-path: /gate
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: gps-gate
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+
+#logging:
+#  level:
+#    root: debug
+
+#配置KAFKA
+#============== kafka ===================
+kafka:
+  consumer:
+    servers: 192.168.1.187:9092
+    enable:
+      auto:
+        commit: true
+    session:
+      timeout: 6000
+    auto:
+      commit:
+        interval: 100
+      offset:
+        reset: latest
+    topic: commands #消费的topic
+    group:
+      id: ${KAFKA_GROUP:consumerForCommand}
+    concurrency: 10 #设置消费线程数
+  producer:
+    servers: 192.168.1.187:9092
+    security:
+      protocol: PLAINTEXT
+    retries: 0
+    batch:
+      size: 40960 #4096
+    linger: 5 #1
+    buffer:
+      memory: 4096000 #40960
+
+gate:
+  tcpPort: 6868
+  udpPort: 6868
+
+

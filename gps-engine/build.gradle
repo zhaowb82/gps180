@@ -5,28 +5,14 @@ dependencies {
     compile project(':hbase')
 
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
-//    compile 'org.springframework.boot:spring-boot-starter-undertow'
-//    compile 'org.springframework.boot:spring-boot-starter-actuator'
-//    compile 'org.springframework.cloud:spring-cloud-starter-feign'
-//    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-//    compile 'org.springframework.cloud:spring-cloud-starter-hystrix'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
 
     compile 'org.springframework.kafka:spring-kafka'
-//    compile 'org.apache.kafka:kafka-clients:0.10.0.0'
-//    compile "com.google.guava:guava:${guavaVersion}"
 
     compile "com.alibaba:druid-spring-boot-starter:${druidBootStarterVersion}"
     compile "mysql:mysql-connector-java:${mysqlConnectorVersion}"
-//    compile 'tk.mybatis:mapper-spring-boot-starter:2.1.5'
-//    compile 'com.github.pagehelper:pagehelper-spring-boot-starter:1.1.2'
     compile 'org.apache.commons:commons-lang3:3.9'
     compile "com.alibaba:fastjson:${fastjsonVersion}"
-//    compile "org.modelmapper:modelmapper:2.3.1"
-
-//    compile 'com.aliyun.openservices:ons-client:1.7.7.Final'
-//    compile 'org.glassfish:javax.json:1.1.4'
-//    compile 'org.mnode.ical4j:ical4j:2.0.5'
     compile 'org.apache.httpcomponents:httpcore:4.4.12'
     compile 'org.apache.httpcomponents:httpclient:4.5.10'
     compile 'javax.servlet:javax.servlet-api:4.0.1'

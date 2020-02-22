@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gps.db.dao.AlarmDao">
+
+    <select id="listPage" resultType="com.gps.db.entity.AlarmEntity">
+        select a.* from alarm a where 1=1
+        <if test="imei != null and imei.trim() != ''">
+            and a.imei like concat('%', #{imei}, '%')
+        </if>
+    </select>
+</mapper>

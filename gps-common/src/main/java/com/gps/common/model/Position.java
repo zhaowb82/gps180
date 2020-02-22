@@ -3,7 +3,6 @@ package com.gps.common.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import com.gps.common.g32960.RealTimeReport;
 
 import java.util.Date;
 import java.util.List;
@@ -164,7 +163,6 @@ public class Position extends ExtendedModel {
     private double accuracy;
     private Double totalDistance;
     private Network network;
-    private RealTimeReport rTimeReport32960;
     private String gotsrc;//定位类型 gps lbs
     //------------------state
     private String connectionStatus;
