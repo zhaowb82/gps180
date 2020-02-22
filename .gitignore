@@ -6,5 +6,8 @@
 .DS_Store
 .checkstyle
 .gradle
+/gradle
+gradlew
+gradlew.bat
 out
 build
