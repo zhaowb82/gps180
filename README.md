@@ -22,7 +22,15 @@
 **演示地址：**
 - 电脑端：[http://wibim.vicp.net:8089/](http://wibim.vicp.net:8089/)
 
-- 手机端下载(flutter开发中）：![](./doc/pic/appdown.png)
+- 手机端下载(flutter开发中）：
+<table>
+    <tr>
+        <td>
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/appdown.png" width="150px"/>
+        </td>
+    </tr>
+</table>
+
 
 **账号密码：**
 
@@ -48,20 +56,35 @@
 
 **纯GPS端：** [https://gps.ccwcar.com/](https://gps.ccwcar.com/)
 
-**手机端：** 
-
-![](./doc/pic/syshare.png)
-
-![](./doc/pic/syapp.jpg)
+**手机端：**
+<table>
+    <tr>
+        <td >
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/syshare.png" width="150px"/>
+        </td>
+        <td >
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/syapp.jpg"/>
+        </td>
+    </tr>
+</table>
 
 自己注册帐号后加入演示公司，公司编号`290383`，申请加入后联系qq群
 
 ----------------------------------------------------------------------------------
 ### 系统架构图
 
-![](./doc/pic/jsjg.png)
-
-![](./doc/pic/js1.png)
+<table>
+    <tr>
+        <td>
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/jsjg.png" width="100%"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/js1.png" width="100%"/>
+        </td>
+    </tr>
+</table>
 
 ### 技术选型
 | 技术 | 描述|
@@ -156,18 +179,29 @@
 - 用大数据方案存gps轨迹数据。
 
 ### 部分截图
-
-![](./doc/pic/func1.png)
-
-![](./doc/pic/func4.png)
-
-![](./doc/pic/func2.png)
-
-![](./doc/pic/func3.png)
+<table>
+    <tr>
+        <td >
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/func1.png" width="100%"/>
+        </td>
+        <td >
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/func4.png" width="100%"/>
+        </td>
+    </tr>
+    <tr>
+        <td >
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/func2.png" width="100%"/>
+        </td>
+        <td >
+            <img src="http://wibim.vicp.net:8089/git/doc/pic/func3.png" width="100%"/>
+        </td>
+    </tr>
+</table>
 
 ## 许可证
 
 [Apache License 2.0](https://gitee.com/wibim/gps180/blob/master/LICENSEE)
+
 
 ## ccw开源项目
 
