@@ -11,7 +11,7 @@
 
 前端项目地址：[`gps180-vue GitHub`](https://github.com/zhaowb82/gps180-vue)
 
-## 联系QQ群：1053077770
+## 联系QQ：18105534
 
 ## 项目介绍
 
