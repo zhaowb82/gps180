@@ -35,7 +35,7 @@ public class SameCompanyAllDataAccess implements DataAccess {
         }
         List<OrgItem> all = company.findAllChildOrgItem(null, DefaultDataAccessFactory.COMPANY_TYPE);
         all.add(company);
-        List<Long> list = new ArrayList<Long>(all.size());
+        List<Long> list = new ArrayList<>(all.size());
         for (OrgItem org : all) {
             list.add(org.getId());
         }

@@ -12,7 +12,7 @@ package com.gps.api.config;
 //import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
-import com.gps.api.datascope.DataScopeInterceptor;
+import com.gps.api.rbac.datascope.DataScopeInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

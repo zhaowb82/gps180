@@ -1,21 +1,19 @@
 
-//version = '3.0.0'
 sourceCompatibility = '1.8'
 
 dependencies {
     compile project(':gps-db')
     compile project(':gps-websocket')
-    compile project(':hbase')
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-aop'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
     compile 'org.springframework.boot:spring-boot-configuration-processor'
     compile 'org.springframework:spring-context-support'
+    compile 'org.springframework.kafka:spring-kafka'
     compile 'org.apache.commons:commons-pool2:2.6.2'
 
     compile "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
     compile "com.google.guava:guava:${guavaVersion}"
-    compile 'org.springframework.kafka:spring-kafka'
     compile 'io.jsonwebtoken:jjwt:0.9.1'
 
     compile "mysql:mysql-connector-java:${mysqlConnectorVersion}"
@@ -29,8 +27,8 @@ dependencies {
     compile 'commons-io:commons-io:2.5'
     compile 'commons-codec:commons-codec:1.12'
     compile 'commons-configuration:commons-configuration:1.10'
-    compile 'org.apache.shiro:shiro-core:1.4.0'
-    compile 'org.apache.shiro:shiro-spring:1.4.0'
+    compile 'org.apache.shiro:shiro-core:1.5.3'
+    compile 'org.apache.shiro:shiro-spring:1.5.3'
     compile 'com.github.axet:kaptcha:0.0.9'
     
     compile 'io.springfox:springfox-swagger2:2.9.2'
@@ -49,27 +47,24 @@ dependencies {
 
     compile 'org.dom4j:dom4j:2.1.1'
     
-    compile 'joda-time:joda-time:2.9.9'
+    compile 'joda-time:joda-time:2.10.6'
     compile "com.alibaba:fastjson:${fastjsonVersion}"
-    compile 'cn.hutool:hutool-all:4.1.1'
-
 
     compile 'com.squareup.retrofit2:retrofit:2.6.0'
     compile 'com.squareup.retrofit2:converter-gson:2.6.0'
-    compile 'org.ligboy.retrofit2:converter-fastjson:2.1.0'
     compile 'com.squareup.okhttp3:okhttp:3.14.2'
     compile 'com.squareup.okhttp3:logging-interceptor:3.14.2'
 
-    compile 'com.github.binarywang:weixin-java-miniapp:3.6.0'
-    compile 'com.github.binarywang:weixin-java-pay:3.6.0'
 
     compile 'com.squareup.okhttp3:okhttp:4.2.2'
 
-    compile 'cn.hutool:hutool-all:5.1.2'
+    compile 'cn.hutool:hutool-all:5.3.7'
+
+    compile 'org.hibernate:hibernate-validator:6.1.5.Final'
+//    compileOnly 'org.hibernate:hibernate-validator-annotation-processor:6.1.5.Final'
+    compile 'javax.el:javax.el-api:3.0.1-b06'
+    compile 'org.glassfish:javax.el:3.0.0'
     
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
-//tasks.withType(JavaCompile) {
-//    options.encoding = 'UTF-8'
-//}

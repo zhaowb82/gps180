@@ -1,8 +1,8 @@
 /**
  * Copyright (c) 2018-2020 GPS180 All rights reserved.
- *
+ * <p>
  * https://www.gps180.com
- *
+ * <p>
  * 版权所有，侵权必究！
  */
 
@@ -34,34 +34,32 @@ import java.util.Map;
 
 /**
  * 角色
- *
- * @author Mark sunlightcs@gmail.com
  */
 @Service("sysRoleService")
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> implements SysRoleService {
-	@Autowired
-	private SysRoleMenuService sysRoleMenuService;
-	@Autowired
-	private SysUserService sysUserService;
+    @Autowired
+    private SysRoleMenuService sysRoleMenuService;
+    @Autowired
+    private SysUserService sysUserService;
     @Autowired
     private SysUserRoleService sysUserRoleService;
-	@Autowired
-	private SysRoleDeptService sysRoleDeptService;
+    @Autowired
+    private SysRoleDeptService sysRoleDeptService;
 
-	@Override
-	public MyPage<SysRoleEntity> queryPage(Map<String, Object> params) {
-		String roleName = (String)params.get("roleName");
-		Long createUserId = (Long)params.get("createUserId");
+    @Override
+    public MyPage<SysRoleEntity> queryPage(Map<String, Object> params) {
+        String roleName = (String) params.get("roleName");
+        Long createUserId = (Long) params.get("createUserId");
 
-		IPage<SysRoleEntity> page = this.page(
-			MyQuery.getPage(params),
-			new QueryWrapper<SysRoleEntity>()
-				.like(StringUtils.isNotBlank(roleName),"role_name", roleName)
-				.eq(createUserId != null,"create_user_id", createUserId)
-		);
+        IPage<SysRoleEntity> page = this.page(
+                MyQuery.getPage(params),
+                new QueryWrapper<SysRoleEntity>()
+                        .like(StringUtils.isNotBlank(roleName), "role_name", roleName)
+                        .eq(createUserId != null, "create_user_id", createUserId)
+        );
 
-		return MyPage.create(page);
-	}
+        return MyPage.create(page);
+    }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -100,30 +98,30 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> i
         //删除角色与用户关联
         sysUserRoleService.deleteBatch(roleIds);
 
-		sysRoleDeptService.deleteBatch(roleIds);
+        sysRoleDeptService.deleteBatch(roleIds);
     }
 
 
     @Override
-	public List<Long> queryRoleIdList(Long createUserId) {
-		return baseMapper.queryRoleIdList(createUserId);
-	}
+    public List<Long> queryRoleIdList(Long createUserId) {
+        return baseMapper.queryRoleIdList(createUserId);
+    }
 
-	/**
-	 * 检查权限是否越权
-	 */
-	private void checkPrems(SysRoleEntity role){
-		//如果不是超级管理员，则需要判断角色的权限是否超过自己的权限
-		if(role.getCreateUserId() == Constant.SUPER_ADMIN){
-			return ;
-		}
-		
-		//查询用户所拥有的菜单列表
-		List<Long> menuIdList = sysUserService.queryAllMenuId(role.getCreateUserId());
-		
-		//判断是否越权
-		if(!menuIdList.containsAll(role.getMenuIdList())){
-			throw new RRException("新增角色的权限，已超出你的权限范围");
-		}
-	}
+    /**
+     * 检查权限是否越权
+     */
+    private void checkPrems(SysRoleEntity role) {
+        //如果不是超级管理员，则需要判断角色的权限是否超过自己的权限
+        if (role.getCreateUserId() == Constant.SUPER_ADMIN) {
+            return;
+        }
+
+        //查询用户所拥有的菜单列表
+        List<Long> menuIdList = sysUserService.queryAllMenuId(role.getCreateUserId());
+
+        //判断是否越权
+        if (!menuIdList.containsAll(role.getMenuIdList())) {
+            throw new RRException("新增角色的权限，已超出你的权限范围");
+        }
+    }
 }

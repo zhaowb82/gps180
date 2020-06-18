@@ -56,10 +56,10 @@ mybatis-plus:
     jdbc-type-for-null: 'null'
 
 gps180:
-  redis:
-    open: false
-  shiro:
-    redis: false
+#  redis:
+#    open: false
+#  shiro:
+#    redis: false
   # APP模块，是通过jwt认证的，如果要使用APP模块，则需要修改【加密秘钥】
   jwt:
     # 加密秘钥
@@ -107,30 +107,3 @@ webSocket:
     errorToleration: 3
     trigger: 30 * * * * ?
 
-
-#https://github.com/binarywang/weixin-java-miniapp-demo
-wx:
-  miniapp:
-    configs:
-      - appid: wx262558f1272fde47
-        secret: 4b584f287135a0cf6463a6d12786fa72
-        token: ccwsurvey
-        aesKey: 845YqialaiWPqXTTEB5cs2WeXjMescb9svHoXpCxkit
-        msgDataFormat: JSON
-  mp:
-    configs:
-      - appId: 1111 （一个公众号的appid）
-        secret: 1111（公众号的appsecret）
-        token: 111 （接口配置里的Token值）
-        aesKey: 111 （接口配置里的EncodingAESKey值）
-      - appId: 2222 （另一个公众号的appid，以下同上）
-        secret: 1111
-        token: 111
-        aesKey: 111
-  pay:
-    appId: wx262558f1272fde47
-    mchId:
-    mchKey:
-    subAppId:
-    subMchId:
-    keyPath:

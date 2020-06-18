@@ -48,8 +48,6 @@ import java.util.Map;
 @Api(tags = "GPS轨迹，统计等其它")
 @Slf4j
 public class GpsController extends AbstractController {
-    @Value("${hbase.useHbase}")
-    private boolean useHbase;
 
     @Autowired
     private DeviceStatusService deviceStatusService;
@@ -109,27 +107,6 @@ public class GpsController extends AbstractController {
 
 			Map<String, Collection<?>> data = new HashMap<>();
 			Collection<Position> positionsr = null;
-            if (useHbase) {
-//                Date startDate = DateUtils.stringToDate(startTime, "yyyy-MM-dd HH:mm:ss");
-//                Date endDate = DateUtils.stringToDate(endTime, "yyyy-MM-dd HH:mm:ss");
-//                String startRow = HbaseUtils.creatRowkey(imei, startTime.getTime());
-//                String endRow = HbaseUtils.creatRowkey(imei, endTime.getTime());
-//
-//                List<HPosition> hPositions = hPositionService.queryScan(new HPosition(), startRow, endRow);
-//				Collection<Position> positions = new ArrayList<>();
-//				hPositions.forEach(hPosition -> {
-//					Position position = new Position();
-//					position.setImei(imei);
-//					position.setLatitude(hPosition.getLatitude());
-//					position.setLongitude(hPosition.getLongtitude());
-//					position.setCourse(hPosition.getDirection());
-//					position.setSpeed(hPosition.getSpeed());
-//					position.setTotalDistance(hPosition.getTotalMiles());
-//					position.setTime(DateUtils.stringToDate(hPosition.getDeviceTime(), "yyyy-MM-dd HH:mm:ss"));
-//					positions.add(position);
-//				});
-//				positionsr = positions;
-            } else {
 				List<PositionsEntity> list = positionsService.list(Wrappers.<PositionsEntity>query()
 						.lambda()
 						.eq(PositionsEntity::getImei, imei)
@@ -151,7 +128,6 @@ public class GpsController extends AbstractController {
 					positions.add(position);
 				});
 				positionsr = positions;
-			}
             if (withPos) {
                 data.put("positions", positionsr);
             }

@@ -20,6 +20,7 @@ public class WebConfig {
     @PostConstruct
     public void initEditableAvlidation() {
         ConfigurableWebBindingInitializer initializer = (ConfigurableWebBindingInitializer) handlerAdapter.getWebBindingInitializer();
+        assert initializer != null;
         if (initializer.getConversionService() != null) {
             GenericConversionService genericConversionService = (GenericConversionService) initializer.getConversionService();
             genericConversionService.addConverter(new StringToDateConverter());

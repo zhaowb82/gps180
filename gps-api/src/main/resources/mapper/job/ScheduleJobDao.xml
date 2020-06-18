@@ -3,12 +3,12 @@
 
 <mapper namespace="com.gps.api.modules.job.dao.ScheduleJobDao">
 
-	<!-- 批量更新状态 -->
-	<update id="updateBatch">
-		update schedule_job set status = #{status} where job_id in
-		<foreach item="jobId" collection="list"  open="(" separator="," close=")">
-			#{jobId}
-		</foreach>
-	</update>
+    <!-- 批量更新状态 -->
+    <update id="updateBatch" parameterType="map">
+        update schedule_job set status = #{status} where job_id in
+        <foreach item="jobId" collection="list" open="(" separator="," close=")">
+            #{jobId}
+        </foreach>
+    </update>
 
 </mapper>

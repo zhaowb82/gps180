@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 集团公司所有
@@ -51,10 +52,7 @@ public class GroupDataAccess implements DataAccess {
         SysDeptEntity depCur = sysDeptService.getById(orgId);
         depsOut.add(depCur);
         getAllDept(depsOut, depCur, sysDeptService);
-        List<Long> depIds = new ArrayList<>();
-        for (SysDeptEntity d: depsOut) {
-            depIds.add(d.getDeptId());
-        }
+        List<Long> depIds = depsOut.stream().map(SysDeptEntity::getDeptId).collect(Collectors.toList());
         DataAccessResullt ret = new DataAccessResullt();
         ret.setStatus(AccessType.OnlyOrg);
         ret.setOrgIds(depIds);

@@ -26,8 +26,6 @@ import java.util.Map;
 
 /**
  * 定时任务日志
- *
- * @author Mark sunlightcs@gmail.com
  */
 @RestController
 @RequestMapping("/sys/scheduleLog")
@@ -42,7 +40,7 @@ public class ScheduleJobLogController {
 	@GetMapping("/list")
 	@RequiresPermissions("sys:schedule:log")
 	@ApiOperation(value = "列表")
-	public R list(@RequestParam Map<String, Object> params){
+	public R<MyPage<ScheduleJobLogEntity>> list(@RequestParam Map<String, Object> params){
 		MyPage<ScheduleJobLogEntity> page = scheduleJobLogService.queryPage(params);
 		
 		return R.ok(page);

@@ -25,8 +25,6 @@ import java.util.Map;
 @Slf4j
 @Component
 public class TrackerServer {
-    @Value("${hbase.useHbase}")
-    private boolean useHbase;
     @Autowired
     private DeviceService deviceBiz;
     @Autowired
@@ -139,9 +137,6 @@ public class TrackerServer {
             BeanUtils.copyProperties(deviceStatus, ps);
             ps.setId(UIDGenerator.eventId());
             positionsService.save(ps);
-            if (useHbase) {
-//                addHbase(position, deviceStatus);
-            }
         }
     }
     private void copyData(DeviceStatusEntity deviceStatus, Position position) {

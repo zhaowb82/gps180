@@ -47,8 +47,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("device")
 @Api(tags = "GPS设备管理")
 public class DeviceController extends AbstractController {
-    @Value("${hbase.useHbase}")
-    private boolean useHbase;
 
     @Autowired
     private UserDeviceService userDeviceService;
@@ -218,9 +216,6 @@ public class DeviceController extends AbstractController {
         positionsService.remove(Wrappers.<PositionsEntity>query().lambda().eq(PositionsEntity::getImei, imei));
         deviceStatusService.removeByImei(imei);
         deviceService.removeById(imei);
-        if (useHbase) {
-//            hPositionService.deleteBy(imei);
-        }
         return R.ok();
     }
 

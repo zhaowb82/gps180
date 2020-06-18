@@ -59,34 +59,4 @@ spring:
                 max-idle: 10      # 连接池中的最大空闲连接
                 min-idle: 5       # 连接池中的最小空闲连接
 
-#hbase:
-#    useHbase: true
-#    master: hb-proxy-pub-wz9j18x7763c699s7-001.hbase.rds.aliyuncs.com:2181
-#    zookeeper:
-#        quorum: hb-proxy-pub-wz9j18x7763c699s7-001.hbase.rds.aliyuncs.com:2181
-#        property:
-#            clientPort: 2181
-hbase:
-    useHbase: true
-    master: 192.168.1.187:12181
-    zookeeper:
-        quorum: 192.168.1.187
-        property:
-            clientPort: 12181
-zookeeper:
-    znode:
-        parent: /hbase
 
-##多数据源的配置
-#dynamic:
-#  datasource:
-#    slave1:
-#      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#      url: jdbc:sqlserver://localhost:1433;DatabaseName=api_security
-#      username: sa
-#      password: 123456
-#    slave2:
-#      driver-class-name: org.postgresql.Driver
-#      url: jdbc:postgresql://localhost:5432/api_security
-#      username: gps
-#      password: 123456

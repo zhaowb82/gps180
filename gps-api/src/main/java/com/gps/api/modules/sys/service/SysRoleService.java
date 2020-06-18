@@ -18,8 +18,6 @@ import java.util.Map;
 
 /**
  * 角色
- *
- * @author Mark sunlightcs@gmail.com
  */
 public interface SysRoleService extends IService<SysRoleEntity> {
 

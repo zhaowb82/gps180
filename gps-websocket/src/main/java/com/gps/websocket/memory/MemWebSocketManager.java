@@ -7,6 +7,7 @@ import com.gps.websocket.WebSocketManager;
 import com.gps.websocket.utils.SpringContextHolder;
 import com.gps.websocket.utils.WebSocketUtil;
 
+import javax.websocket.Session;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -64,7 +65,7 @@ public class MemWebSocketManager implements WebSocketManager {
     }
 
     @Override
-    public void onMessage(String identifier, String message) {
+    public void onMessage(String identifier, String message, Session session) {
 
     }
 

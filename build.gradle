@@ -1,7 +1,7 @@
 
 buildscript {
     ext {
-        springBootVersion = '2.2.4.RELEASE'
+        springBootVersion = '2.3.0.RELEASE'
         transmodeGradleDockerVersion=1.2
     }
     repositories {
@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath "io.franzbecker:gradle-lombok:1.14"
+        classpath "io.franzbecker:gradle-lombok:3.1.0"
     }
 }
 
@@ -36,13 +36,13 @@ subprojects {
     targetCompatibility = 1.8
 
     ext {
-        fastjsonVersion = '1.2.60'
-        guavaVersion = '20.0'
-        lombokVersion = '1.18.10'
-        mysqlConnectorVersion = '8.0.19'
-        mybatisPlusVersion = '3.3.1'
-        druidBootStarterVersion = '1.1.20'
-        nettyVersion = '4.1.45.Final'
+        fastjsonVersion = '1.2.70'
+        guavaVersion = '29.0-jre'
+        lombokVersion = '1.18.12'
+        mysqlConnectorVersion = '8.0.20'
+        mybatisPlusVersion = '3.3.2'
+        druidBootStarterVersion = '1.1.22'
+        nettyVersion = '4.1.49.Final'
     }
 
     [compileJava, compileTestJava].each() {

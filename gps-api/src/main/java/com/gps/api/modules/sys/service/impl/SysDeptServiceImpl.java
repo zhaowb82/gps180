@@ -1,8 +1,17 @@
 package com.gps.api.modules.sys.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.gps.api.common.utils.SpringContextUtils;
+import com.gps.api.modules.sys.entity.SysUserEntity;
+import com.gps.api.modules.sys.service.SysUserService;
+import com.gps.api.rbac.DataAccess;
+import com.gps.api.rbac.DataAccessResullt;
+import com.gps.api.rbac.da.DefaultDataAccessFactory;
 import com.gps.db.dbutils.MyQuery;
 import com.gps.db.dbutils.MyPage;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -21,11 +30,9 @@ import java.util.List;
 public class SysDeptServiceImpl extends ServiceImpl<SysDeptDao, SysDeptEntity> implements SysDeptService {
 	@Autowired
 	private SysDeptDao sysDeptDao;
+	@Autowired
+	private SysUserService sysUserService;
 	
-//	@Override
-//	public SysDeptEntity queryObject(Long deptId){
-//		return sysDeptDao.queryObject(deptId);
-//	}
     @Override
     public MyPage<SysDeptEntity> queryPage(Map<String, Object> params) {
         IPage<SysDeptEntity> page = this.page(
@@ -36,7 +43,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptDao, SysDeptEntity> i
 		return MyPage.create(page);
     }
 	
-	@Override
+	@Override //全部 含禁用的
 //	@DataFilter(tableAlias = "d", user = false)
 	public List<SysDeptEntity> listByUser(){
     	return sysDeptDao.listByUser();
@@ -78,6 +85,33 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptDao, SysDeptEntity> i
 
 		String deptFilter = StringUtils.join(deptIdList, ",");
 		return deptFilter;
+	}
+
+	@Override
+	public List<SysDeptEntity> depsByUserId(Long userId) {
+		SysUserEntity user = sysUserService.getById(userId);
+		DefaultDataAccessFactory da = SpringContextUtils.getBean(DefaultDataAccessFactory.class);
+		DataAccess daa = da.getDataAccess(user.getDataScopeType());
+		if (daa == null && userId == 1) {
+			daa = da.getAllOrg();
+		}
+		if (daa != null) {
+			DataAccessResullt dttt = daa.getOrg(userId, user.getDeptId());
+			switch (dttt.getStatus()) {
+				case OnlyUser:
+//					return list(Wrappers.<SysDeptEntity>lambdaQuery()
+//							.in(SysDeptEntity::get, dttt.getOrgIds()));
+				return Collections.emptyList();
+				case OnlyOrg:
+					return list(Wrappers.<SysDeptEntity>lambdaQuery()
+							.in(SysDeptEntity::getDeptId, dttt.getOrgIds()));
+				case AllOrg:
+					break;
+				case NoneOrg:
+					return Collections.emptyList();
+			}
+		}
+		return this.list();
 	}
 
 	/**

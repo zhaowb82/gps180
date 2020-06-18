@@ -9,22 +9,14 @@ import java.util.Map;
 
 /**
  * 部门管理
- * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2019-06-20 16:41:58
  */
 public interface SysDeptService extends IService<SysDeptEntity> {
 
     MyPage<SysDeptEntity> queryPage(Map<String, Object> params);
 	
-//	SysDeptEntity queryObject(Long deptId);
-
 	List<SysDeptEntity> listByUser();
 //
 //	void saveSysDept(SysDeptEntity sysDept);
-//
-//	void update(SysDeptEntity sysDept);
 
 	void delete(Long deptId);
 
@@ -39,4 +31,5 @@ public interface SysDeptService extends IService<SysDeptEntity> {
 	 */
 	String getSubDeptIdList(Long deptId);
 
+	List<SysDeptEntity> depsByUserId(Long userId);
 }

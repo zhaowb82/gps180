@@ -14,7 +14,7 @@ import com.gps.db.entity.DeviceEntity;
 import com.gps.db.service.DeviceService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
-import com.gps.api.modules.app.utils.JwtUtils;
+import com.gps.api.common.utils.JwtUtils;
 import com.gps.api.modules.sys.entity.SysUserEntity;
 import com.gps.api.modules.sys.entity.SysUserTokenEntity;
 import org.apache.shiro.authc.*;
@@ -29,8 +29,6 @@ import java.util.Set;
 
 /**
  * 认证
- *
- * @author Mark sunlightcs@gmail.com
  */
 @Component
 public class OAuth2Realm extends AuthorizingRealm {

@@ -8,7 +8,7 @@
 
 package com.gps.api.modules.sys.oauth2;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
 import com.gps.api.common.utils.HttpContextUtils;
 import com.gps.db.utils.R;
 import org.apache.commons.lang.StringUtils;
@@ -26,8 +26,6 @@ import java.io.IOException;
 
 /**
  * oauth2过滤器
- *
- * @author Mark sunlightcs@gmail.com
  */
 public class OAuth2Filter extends AuthenticatingFilter {
 
@@ -61,7 +59,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
             httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
             httpResponse.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
 
-            String json = new Gson().toJson(R.error(HttpStatus.SC_UNAUTHORIZED, "invalid token"));
+            String json = JSON.toJSONString(R.error(HttpStatus.SC_UNAUTHORIZED, "invalid token"));
 
             httpResponse.getWriter().print(json);
             return false;
@@ -79,7 +77,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
             //处理登录失败的异常
             Throwable throwable = e.getCause() == null ? e : e.getCause();
             R r = R.error(HttpStatus.SC_UNAUTHORIZED, throwable.getMessage());
-            String json = new Gson().toJson(r);
+            String json = JSON.toJSONString(r);
             httpResponse.setStatus(HttpStatus.SC_UNAUTHORIZED);
             httpResponse.getWriter().print(json);
         } catch (IOException e1) {

@@ -15,8 +15,6 @@ import com.gps.api.modules.sys.oauth2.GpsPrincipal;
 
 /**
  * Controller公共组件
- *
- * @author Mark sunlightcs@gmail.com
  */
 public abstract class AbstractController {
 

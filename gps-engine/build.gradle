@@ -2,7 +2,6 @@
 description = ''
 dependencies {
     compile project(':gps-db')
-    compile project(':hbase')
 
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'

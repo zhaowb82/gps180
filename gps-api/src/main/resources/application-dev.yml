@@ -58,29 +58,3 @@ spring:
                 max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）
                 max-idle: 10      # 连接池中的最大空闲连接
                 min-idle: 5       # 连接池中的最小空闲连接
-
-
-##多数据源的配置
-#dynamic:
-#  datasource:
-#    slave1:
-#      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#      url: jdbc:sqlserver://localhost:1433;DatabaseName=gps_security
-#      username: sa
-#      password: 123456
-#    slave2:
-#      driver-class-name: org.postgresql.Driver
-#      url: jdbc:postgresql://localhost:5432/api_security
-#      username: gps
-#      password: 123456
-
-hbase:
-    useHbase: false
-    master: 192.168.1.187:12181
-    zookeeper:
-        quorum: 192.168.1.187
-        property:
-            clientPort: 12181
-zookeeper:
-    znode:
-        parent: /hbase

@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gps.db.entity.DeviceEntity;
 import com.gps.db.utils.R;
 import com.gps.api.common.utils.ShiroUtils;
-import com.gps.api.modules.app.utils.JwtUtils;
+import com.gps.api.common.utils.JwtUtils;
 import com.gps.api.modules.sys.dao.SysUserTokenDao;
 import com.gps.api.modules.sys.entity.SysUserEntity;
 import com.gps.api.modules.sys.entity.SysUserTokenEntity;
@@ -63,7 +63,7 @@ public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenDao, SysUse
                         sysUserTokenRedis.delete(se.getId() + "");
                     }
                 }
-                if (tokenEntitys.size()== 1) {
+                if (tokenEntitys.size() == 1) {
                     tokenEntity = tokenEntitys.get(0);
                 }
             }

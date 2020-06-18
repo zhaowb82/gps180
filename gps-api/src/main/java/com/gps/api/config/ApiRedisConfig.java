@@ -25,8 +25,6 @@ import java.time.Duration;
 
 /**
  * Redis配置
- *
- * @author Mark sunlightcs@gmail.com
  */
 @Configuration
 //@EnableCaching
@@ -79,7 +77,7 @@ public class ApiRedisConfig {
     }
 
     @Bean(name = "apiRedisTemplate")
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory apiConnFactory) {
+    public RedisTemplate<String, Object> redisTemplate(@Qualifier("apiConnFactory") RedisConnectionFactory apiConnFactory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(apiConnFactory);
 

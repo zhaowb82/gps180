@@ -19,7 +19,6 @@ import java.util.Map;
 /**
  * Shiro配置
  *
- * @author Mark sunlightcs@gmail.com
  */
 @Configuration
 public class ShiroConfig {
@@ -61,7 +60,6 @@ public class ShiroConfig {
         filterMap.put("/", "anon");
         filterMap.put("/index", "anon");
         filterMap.put("/ad/**", "anon");
-        filterMap.put("/hbase/**", "anon");
         filterMap.put("/websocket/**", "anon");
         filterMap.put("/devicerec/**", "anon");
 

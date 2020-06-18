@@ -77,7 +77,7 @@ public abstract class BaseWebSocketEndpoint {
             //像刷新这种，id一样，session不一样，后面的覆盖前面的
             websocketManager.put(identifier, webSocket);
         } catch (Exception e) {
-            logger.error(e.getMessage(), e);
+            logger.error("tttt:" + e.getMessage(), e);
         }
     }
 
@@ -100,7 +100,7 @@ public abstract class BaseWebSocketEndpoint {
             return;
         }
         //收到其他消息的时候
-        webSocketManager.onMessage(identifier, message);
+        webSocketManager.onMessage(identifier, message, session);
     }
 
     protected WebSocketManager getWebSocketManager() {

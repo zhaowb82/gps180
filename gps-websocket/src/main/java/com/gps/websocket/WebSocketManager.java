@@ -1,5 +1,6 @@
 package com.gps.websocket;
 
+import javax.websocket.Session;
 import java.util.List;
 import java.util.Map;
 
@@ -64,8 +65,9 @@ public interface WebSocketManager {
      * WebSocket接收到消息的函数调用
      * @param identifier 标识
      * @param message 消息内容
+     * @param session
      */
-    void onMessage(String identifier , String message);
+    void onMessage(String identifier, String message, Session session);
 
     /**
      * 在OnMessage中判断是否是心跳,
